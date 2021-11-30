@@ -1,0 +1,5 @@
+/node_modules
+/src/cerificado-covid-19/resource/*
+!/src/cerificado-covid-19/resource/**.html
+/src/resultado-test-covid-19/resource/*
+!/src/resultado-test-covid-19/resource/**.html

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8" />
+	<style>
+		.bg-yellow {
+			background-color: #FFDB2E;
+			text-align: left;
+			padding: 1rem 2.5rem;
+			margin: 0;
+		}
+
+		.highlight {
+			background-color: #FFDB2E;
+		}
+
+		.font-light {
+			font-weight: 100;
+			font-size: 1.1rem;
+			color: gray;
+		}
+
+		.title {
+			font-family: nunito;
+			font-weight: bold;
+			font-size: 2.2rem;
+		}
+
+		body {
+			font-family: "nunito";
+			margin: auto;
+		}
+
+		li {
+			list-style-type: none;
+		}
+
+		ul {
+			margin: 0;
+		}
+
+		main {
+			padding: 2.5rem;
+		}
+
+		.line {
+			border-bottom: 2px solid #c5c3c2;
+			display: block;
+			padding-top: 0.5rem;
+		}
+
+		.line-light {
+			border-bottom: 1px solid #c5c3c2;
+			display: block;
+			padding-top: 1rem;
+			padding-bottom: 0.25rem;
+		}
+
+		.line-yellow {
+			border-bottom: 5px solid #FFDB2E;
+			margin-bottom: 1rem;
+		}
+
+		.box {
+			border: 3px solid #c5c3c2;
+			border-radius: 10px;
+			height: fit-content;
+			margin-bottom: 2rem;
+			padding-left: 2.5rem;
+			padding-right: 2.5rem;
+			padding-bottom: 1.5rem;
+		}
+
+		.box h3 {
+			padding: 0px;
+			margin-bottom: 0px;
+			margin-top: 1.2rem;
+			font-size: 1.3rem;
+			font-weight: bolder;
+		}
+
+		.grid-row {
+			padding-left: 0;
+		}
+
+		.grid-row-col {
+			padding-left: 0;
+		}
+
+		.grid-col {
+			padding: .4rem;
+		}
+
+		.ft-2 {
+			font-size: 1.2rem;
+		}
+
+		.logo-footer {
+			width: 100%;
+		}
+
+		.logo-ba {
+			font-size: 1.3rem;
+		}
+
+		.fl-lf {
+			float: left;
+		}
+
+		.mr-2 {
+			margin-right: 40px;
+		}
+
+		.mr-1 {
+			margin-right: 10px;
+		}
+
+		.clear {
+			clear: both;
+		}
+
+		.ministerio {
+			font-size: 1.3rem;
+			font-weight: bold;
+			position: relative;
+			top: -10px;
+		}
+
+		.logo-footer {
+			position: relative;
+			left: 30%;
+			right: 30%;
+		}
+
+		.font-light-sm {
+			font-size: 1rem;
+		}
+
+		.grid-col {
+			color: rgb(87, 87, 87);
+		}
+
+		.grid-col b {
+			color: black;
+		}
+	</style>
+	<title>Resultado de Test COVID</title>
+</head>
+
+<body>
+	<header class="bg-yellow">
+		<h1 class="title">Resultado de Test COVID-19</h1>
+	</header>
+	<main>
+		<div class="box">
+			<h3>Datos de la Persona</h3>
+			<div class="line"></div>
+			<div class="ft-2">
+				<ul class="grid-row">
+					<li class="grid-col">Nombre: <b>{nombre}</b></li>
+					<li class="grid-col">Apellido: <b>{apellido}</b></li>
+					<li class="grid-col">Número de Documento: <b>{nro_documento}</b></li>
+				</ul>
+			</div>
+		</div>
+		<div class="box">
+			<h3>Test</h3>
+			<div class="line"></div>
+			<h4 class="font-light">Te hiciste un test para la detección del virus SARS-CoV-2 en un Centro de Testeo de
+				la
+				Ciudad de Buenos Aires.</h4>
+			<div class="ft-2">
+				<ul class="grid-row-col">
+					<li class="grid-col">Estudio: <b>{estudio}</b></li>
+					<li class="grid-col">Técnica: <b>{tecnica}</b></li>
+				</ul>
+				<ul class="grid-row">
+					<li class="grid-col">Fecha del estudio: <b>{fecha_estudio}</b></li>
+					<li class="grid-col">Resultado: <mark class="highlight"><b>{resultado}</b></mark></li>
+				</ul>
+				<div class="line"></div>
+				<h5 class="font-light font-light-sm">La interpretación de este resultado debe ser evaluada dentro de un
+					contexto clínico y
+					epidemiológico.</h5>
+			</div>
+		</div>
+	</main>
+	{#if footer}
+	<footer>
+		<div class="line-yellow"></div>
+		<div class="logo-footer">
+			<div class="fl-lf mr-2">
+				<img src="{ba_ciudad_logo}" alt="baciudadlogo" class="logo" />
+			</div>
+			<div class="footer-flex fl-lf">
+				<img src="{ba_logo}" alt="BA-Logo" class="logo logo-ba fl-lf mr-1" />
+				<p class="fl-lf ministerio">Ministerio de Salud</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</footer>
+	{/if}
+</body>
+
+</html>
