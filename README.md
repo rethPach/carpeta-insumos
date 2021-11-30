@@ -11,7 +11,7 @@ cd carpeta
 ```
 
 ```bash
-1. npm install
+2. npm install
 ```
 
 ```bash
