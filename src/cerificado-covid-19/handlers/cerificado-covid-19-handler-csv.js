@@ -36,18 +36,11 @@ class CertificadoCovid19HandlerCsv {
 	async generate(documentTypeId, url) {
 		try {
 			let datasource = await this.datasource();
-			let documentTypeResponse = await this.documentType(documentTypeId);
-			let documentType = documentTypeResponse.data;
-			if (!documentType) {
-				return;
-			};
-
-			let datasourceMap = await this.datasourceMap(datasource, documentType);
+			let datasourceMap = await this.datasourceMap(datasource, documentTypeId);
 			if (datasourceMap.length == 0) {
 				console.log("DatasourceEmptyException");
 				return;
 			}
-
 			fs.writeFileSync(url, datasourceMap);
 		}
 		catch (e) {
@@ -55,7 +48,7 @@ class CertificadoCovid19HandlerCsv {
 		}
 	}
 
-	async datasourceMap(datasource, documentType) {
+	async datasourceMap(datasource, documentTypeId) {
 		let fields = ['baID', 'documentTypeId', 'contenido'];
 		let opts = { fields };
 		let parser = new Parser(opts);
@@ -64,7 +57,7 @@ class CertificadoCovid19HandlerCsv {
 				let content = this.makeContent(itemDatasource);
 				return {
 					baID: itemDatasource.nro_documento,
-					documentTypeId: documentType.id,
+					documentTypeId: documentTypeId,
 					contenido: JSON.stringify(content)
 				}
 			})
@@ -89,15 +82,6 @@ class CertificadoCovid19HandlerCsv {
 			})
 		}
 		return content;
-	}
-
-	async documentType(id) {
-		return fetch("http://localhost:9090/api/document-type/find/" + id).then(response => response.json());
-	}
-
-
-	datasourceErr(error) {
-		console.log("Datasource error...", error);
 	}
 }
 
