@@ -110,8 +110,8 @@ class ResultadoTestCovidHandlerHtml {
 
 	ingestCommandMetaData(baid) {
 		return {
-			nombre: "Kawi",
-			apellido: "Leonard",
+			nombre: "Tom",
+			apellido: "Brady",
 			nro_documento: baid,
 			estudio: "Hisopado",
 			fecha_estudio: "31/12/21",

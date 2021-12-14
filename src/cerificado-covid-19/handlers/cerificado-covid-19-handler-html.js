@@ -115,8 +115,8 @@ class CertificadoCovid19HandlerHtml {
 
 	ingestCommandMetaData(baid) {
 		return {
-			nombre: "Zack",
-			apellido: "Lavine",
+			nombre: "Richard",
+			apellido: "Sherman",
 			nro_documento: baid,
 			vacunas: [
 				{ 

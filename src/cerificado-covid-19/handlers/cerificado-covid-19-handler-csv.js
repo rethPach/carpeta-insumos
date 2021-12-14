@@ -11,8 +11,8 @@ class CertificadoCovid19HandlerCsv {
 		return new Promise((resolve, reject) => {
 			resolve([
 				{
-					nombre: "Jamal",
-					apellido: "Crawford",
+					nombre: "Richard",
+					apellido: "Sherman",
 					nro_documento: "99.999.999",
 					vacunas: [
 						{ 

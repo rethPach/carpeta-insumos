@@ -11,8 +11,8 @@ class ResultadoTestCovidHandlerCsv {
 		return new Promise((resolve, reject) => {
 			resolve([
 				{
-					nombre: "Kawi2",
-					apellido: "Leonard2",
+					nombre: "Tom",
+					apellido: "Brady",
 					nro_documento: "22542653",
 					estudio: "Hisopado2",
 					fecha_estudio: "31/12/21",
