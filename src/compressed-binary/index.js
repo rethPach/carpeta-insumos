@@ -4,7 +4,7 @@ const Parser = require('json2csv').Parser;
 const archiver = require('archiver');
 
 
-generateInsumo("resource/binaries/insumo.csv", "4234234232", "1");
+generateInsumo("resource/binaries/insumo.csv", "4234234232", "20");
 
 function generateInsumo(url, baid, documentId) {
 	let filenames = fs.readdirSync(path.join(__dirname, "resource/binaries"));
@@ -18,16 +18,22 @@ function createCsv(baid, documentId, files) {
 	let opts = { fields };
 	let parser = new Parser(opts);
 
-	let datasource = files.map((filename, index)=>{
+	let datasource = files.filter(removeInsumo).map((filename, index)=>{
+		let filenameTest = [0,1,2].indexOf(index)>-1 ? files[0] : filename;
+		filenameTest = index == 4 ? "pedro" : filename;
 		return {
 			baID: baid,
 			documentTypeId: documentId,
 			contenido: createContentPlaceholder(index),
-			filename: filename
+			filename: filenameTest
 		};
 	});
 
 	return parser.parse(datasource);
+}
+
+function removeInsumo(filename) {
+	return filename.toLowerCase().indexOf(".csv")==-1;
 }
 
 function createContentPlaceholder(index) {
